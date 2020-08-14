@@ -32,8 +32,6 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
 Vue.prototype.HOST="/api"
 
-let base = process.env.NODE_ENV === 'production' ?'http://192.168.1.252:8080':'/api';
-Vue.prototype.baseURL = base;
 
 
 

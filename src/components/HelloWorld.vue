@@ -104,7 +104,7 @@ export default {
             {
               type: "video/mp4",
               src:
-                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/mp4/34020000001320000104-20200802.mp4", //url地址
+                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/cameraVideo/34020000001320000104-20200813.mp4", //url地址
             },
           ],
           controlBar: {
@@ -230,7 +230,7 @@ export default {
             {
               type: "video/mp4",
               src:
-                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/mp4/34020000001320000105-20200802.mp4", //url地址
+                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/cameraVideo/34020000001320000105-20200813.mp4", //url地址
             },
           ],
           controlBar: {
@@ -255,7 +255,7 @@ export default {
             {
               type: "video/mp4",
               src:
-                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/mp4/34020000001320000102-20200802.mp4", //url地址
+                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/cameraVideo/34020000001320000102-20200813.mp4", //url地址
             },
           ],
           controlBar: {
@@ -280,7 +280,7 @@ export default {
             {
               type: "video/mp4",
               src:
-                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/mp4/34020000001320000101-20200802.mp4", //url地址
+                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/cameraVideo/34020000001320000101-20200813.mp4", //url地址
             },
           ],
           controlBar: {
@@ -407,7 +407,7 @@ export default {
             {
               type: "video/mp4",
               src:
-                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/mp4/34020000001320000104-20200802.mp4", //url地址
+                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/cameraVideo/34020000001320000104-20200813.mp4", //url地址
             },
           ],
           controlBar: {
@@ -533,7 +533,7 @@ export default {
             {
               type: "video/mp4",
               src:
-                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/mp4/34020000001320000105-20200802.mp4", //url地址
+                "https://djseller.obs.cn-south-1.myhuaweicloud.com/huayangnian/cameraVideo/34020000001320000105-20200813.mp4", //url地址
             },
           ],
           controlBar: {
