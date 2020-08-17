@@ -1,86 +1,151 @@
 <template>
   <div class="hello">
-    <!-- <video id="videoId" controls="true" height="300" width="auto"></video> -->
-    <ul class="bas">
-      <li @click="add1" :class="yanse==1?'yanse':''">惠州</li>
-      <li @click="add2" :class="yanse==2?'yanse':''">深圳</li>
-
-      <el-button type="warning" icon="el-icon-star-off" circle @click="but"></el-button>
-    </ul>
-
-    <div class="czc"  v-if="dialogVisible"></div>
-    <div v-show="dialogVisible" class="anchuk">
-      <p>
-        直播
-        <i class="el-icon-circle-close" @click="cancelVideo"></i>
-      </p>
-      <video
-        id="videoElement"
-        height="300"
-        width="400"
-        autoplay="autoplay"
-        v-on:dblclick="addbut"
-        poster="@/assets/timg.gif"
-      >Your browser does not support the video tag.</video>
-    </div>
-
-    <div :class="classfalse?'input_video-box':'input_video-box1'" id="videoplayer1" v-if="yanse==1">
-      <!-- 1 -->
-      <div
-        class="input_video"
-        v-on:dblclick="toggleFullscreen1(item.id)"
-        v-for="(item,index) in video"
-        :key="index"
-      >
-        <div :class="classfalse?'input_video_div':'none'" @click="dialogVisible11(index,1)">
-          <i class="el-icon-thumb"></i> 观看直播
-        </div>
-        <p :class="classfalse?'input_video-bt_span':'none'">{{item.name}}</p>
-        <video-player
-          :id="item.id"
-          class="video-player vjs-custom-skin"
-          ref="videoPlayer"
-          :playsinline="true"
-          :options="item"
-        ></video-player>
-        <div class="input_video-bt">
-          <span class="input_video-bt_span"></span>
-          <div>
-            <!-- <el-button type="success" round @click="dialogVisible = true">进入直播间</el-button> -->
-          </div>
-        </div>
+    <el-container :style="conheight">
+      <!-- 直播框 -->
+      <div class="czc" v-if="dialogVisible"></div>
+      <div v-show="dialogVisible" class="anchuk">
+        <p>
+          直播
+          <i class="el-icon-circle-close" @click="cancelVideo"></i>
+        </p>
+        <video
+          id="videoElement"
+          height="300"
+          width="400"
+          autoplay="autoplay"
+          v-on:dblclick="addbut"
+          poster="@/assets/timg.gif"
+        >Your browser does not support the video tag.</video>
       </div>
-      <!-- /1 -->
-    </div>
+      <!-- /直播框 -->
 
-    <div :class="classfalse?'input_video-box':'input_video-box1'" id="videoplayer1" v-if="yanse==2">
-      <!-- 1 -->
-      <div
-        class="input_video"
-        v-on:dblclick="toggleFullscreen1(item.id)"
-        v-for="(item,index) in video1"
-        :key="index"
-      >
-        <div :class="classfalse?'input_video_div':'none'" @click="dialogVisible11(index,2)">
-          <i class="el-icon-thumb"></i> 观看直播
-        </div>
-        <p :class="classfalse?'input_video-bt_span':'none'">{{item.name}}</p>
-        <video-player
-          :id="item.id"
-          class="video-player vjs-custom-skin"
-          ref="videoPlayer"
-          :playsinline="true"
-          :options="item"
-        ></video-player>
-        <div class="input_video-bt">
-          <span class="input_video-bt_span"></span>
-          <div>
-            <!-- <el-button type="success" round @click="dialogVisible = true">进入直播间</el-button> -->
+      <!-- 侧边栏 -->
+      <el-aside width="150px">
+        <ul class="bas">
+          <li @click="add1" :class="yanse==1?'yanse':''">惠州</li>
+          <li @click="add2" :class="yanse==2?'yanse':''">深圳</li>
+        </ul>
+      </el-aside>
+      <!-- /侧边栏 -->
+
+      <!-- 头&内容 -->
+      <el-container>
+        <!-- 头 -->
+        <el-header>
+          <!-- 头部 -->
+          <el-dropdown @command="handleCommand">
+            <span class="el-dropdown-link">
+              全部
+              <i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+              <el-dropdown-item command="b">狮子头</el-dropdown-item>
+              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+
+              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+              <el-dropdown-item command="b">狮子头</el-dropdown-item>
+              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+
+              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+              <el-dropdown-item command="b">狮子头</el-dropdown-item>
+              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+
+              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+              <el-dropdown-item command="b">狮子头</el-dropdown-item>
+              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+
+              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+              <el-dropdown-item command="b">狮子头</el-dropdown-item>
+              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+
+              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+              <el-dropdown-item command="b">狮子头</el-dropdown-item>
+              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <div class="Fullscreen">
+            <span>全屏</span>
+            <img src="@/assets/全屏.png" alt @click="but" />
           </div>
-        </div>
-      </div>
-      <!-- /1 -->
-    </div>
+        </el-header>
+        <!-- /头 -->
+
+        <!-- 内容 -->
+        <el-main>
+          <!-- 惠州 -->
+          <div
+            :class="classfalse?'input_video-box':'input_video-box1'"
+            id="videoplayer1"
+            v-if="yanse==1"
+          >
+            <!-- 1 -->
+            <div
+              class="input_video"
+              v-on:dblclick="toggleFullscreen1(item.id)"
+              v-for="(item,index) in video"
+              :key="index"
+            >
+              <div :class="classfalse?'input_video_div':'none'" @click="dialogVisible11(index,1)">
+                <i class="el-icon-thumb"></i> 观看直播
+              </div>
+              <p :class="classfalse?'input_video-bt_span':'none'">{{item.name}}</p>
+              <video-player
+                :id="item.id"
+                class="video-player vjs-custom-skin"
+                ref="videoPlayer"
+                :playsinline="true"
+                :options="item"
+              ></video-player>
+              <div class="input_video-bt">
+                <span class="input_video-bt_span"></span>
+                <div>
+                  <!-- <el-button type="success" round @click="dialogVisible = true">进入直播间</el-button> -->
+                </div>
+              </div>
+            </div>
+            <!-- /1 -->
+          </div>
+
+          <!-- 深圳 -->
+          <div
+            :class="classfalse?'input_video-box':'input_video-box1'"
+            id="videoplayer1"
+            v-if="yanse==2"
+          >
+            <!-- 1 -->
+            <div
+              class="input_video"
+              v-on:dblclick="toggleFullscreen1(item.id)"
+              v-for="(item,index) in video1"
+              :key="index"
+            >
+              <div :class="classfalse?'input_video_div':'none'" @click="dialogVisible11(index,2)">
+                <i class="el-icon-thumb"></i> 观看直播
+              </div>
+              <p :class="classfalse?'input_video-bt_span':'none'">{{item.name}}</p>
+              <video-player
+                :id="item.id"
+                class="video-player vjs-custom-skin"
+                ref="videoPlayer"
+                :playsinline="true"
+                :options="item"
+              ></video-player>
+              <div class="input_video-bt">
+                <span class="input_video-bt_span"></span>
+                <div>
+                  <!-- <el-button type="success" round @click="dialogVisible = true">进入直播间</el-button> -->
+                </div>
+              </div>
+            </div>
+            <!-- /1 -->
+          </div>
+        </el-main>
+
+        <!-- /内容 -->
+      </el-container>
+      <!-- /头&内容 -->
+    </el-container>
   </div>
 </template>
 
@@ -90,6 +155,7 @@ import flvjs from "flv.js";
 export default {
   data() {
     return {
+      // 惠州MP4
       video: [
         {
           playbackRates: [0.5, 1.0, 1.5, 2.0], //可选择的播放速度
@@ -318,6 +384,7 @@ export default {
           id: "chufang",
         },
       ],
+      // 深圳MP4
       video1: [
         {
           playbackRates: [0.5, 1.0, 1.5, 2.0], //可选择的播放速度
@@ -546,7 +613,7 @@ export default {
           id: "ciwo",
         },
       ],
-
+      // 惠州直播
       url: [
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000104_34020000001310000001.flv",
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000108_34020000001310000001.flv",
@@ -558,6 +625,7 @@ export default {
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000101_34020000001310000001.flv",
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000004_34020000001310000001.flv",
       ],
+      // 深圳直播
       url2: [
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000009_34020000001310000001.flv",
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000002_34020000001310000001.flv",
@@ -569,12 +637,13 @@ export default {
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000103_34020000001310000001.flv",
         "http://139.9.102.33:10000/sms/34020000002020000001/flv/hls/34020000001320000105_34020000001310000001.flv",
       ],
-      dialogVisible: false,
-      dialogVisible2: false,
-      classfalse: true,
-      showVideoDialog: false,
-      flvPlayer: "",
-      yanse: 1,
+      conheight: {
+        height: "",
+      },
+      dialogVisible: false, // 直播对话框判断
+      classfalse: true, // 颜色判断
+      flvPlayer: "", // 直播参数
+      yanse: 1, // 地区判断
     };
   },
 
@@ -584,39 +653,18 @@ export default {
     },
   },
   methods: {
-    //监听视频点击开始
-    onPlayerPlay(player) {
-      console.log("player play!", player, "监听播放");
-    },
-    //监听视频点击暂停
-    onPlayerPause(player) {
-      console.log("player pause!", player, "监听暂停");
-    },
-    // ...player event
-
-    // or listen state event
-    playerStateChanged(playerCurrentState) {
-      //   console.log('player current update state', playerCurrentState)
-    },
-
-    // player is ready
-    playerReadied(player) {
-      //   console.log("the player is readied", player);
-      // you can use it to do something...
-      // player.[methods]
-    },
-
-    toggleFullscreen(this1) {
-      // screenfull.toggle(document.getElementById("videoplayer1"));
-    },
+    // 视频全屏
     toggleFullscreen1(name) {
       screenfull.toggle(document.getElementById(name));
     },
+
+    // 直播双击全屏
     addbut() {
       screenfull.toggle(document.getElementById("videoElement"));
     },
+
+    // 获取直播接口信息
     dialogVisible11(index, num) {
-      console.log(num);
       this.dialogVisible = true;
       if (num == 1) {
         let api = [
@@ -668,9 +716,8 @@ export default {
           });
       }
     },
-    cancelVideo2() {},
 
-    //全屏
+    // 点击全屏按钮
     but() {
       if (screenfull.isEnabled) {
         screenfull.toggle(document.getElementById("videoplayer1"));
@@ -685,6 +732,8 @@ export default {
         });
       }
     },
+
+    // 播放直播
     show(index) {
       if (flvjs.isSupported()) {
         let player = document.getElementById("videoElement");
@@ -704,6 +753,8 @@ export default {
         this.flvPlayer.play();
       }
     },
+
+    // 播放直播
     show2(index) {
       if (flvjs.isSupported()) {
         let player = document.getElementById("videoElement");
@@ -724,6 +775,7 @@ export default {
       }
     },
 
+    // 点击停止直播\关闭对话框
     cancelVideo() {
       this.dialogVisible = false;
       var _this = this;
@@ -733,15 +785,22 @@ export default {
       _this.flvPlayer.destroy();
       _this.flvPlayer = null;
     },
+
+    // 切换栏判断
     add1() {
       this.yanse = 1;
     },
+    // 切换栏判断
     add2() {
       this.yanse = 2;
     },
+
+    getHeight() {
+      this.conheight.height = window.innerHeight + "px";
+    },
   },
   mounted() {
-    // this.show();
+    // 登录状态
     this.$axios
       .get({
         url:
@@ -752,7 +811,10 @@ export default {
         console.log(res, "登录");
       });
   },
-  created() {},
+  created() {
+    window.addEventListener("resize", this.getHeight);
+    this.getHeight();
+  },
 };
 </script>
 
@@ -767,7 +829,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 50px 300px 0 300px;
+  padding: 0px 200px 0px 200px;
 }
 .input_video-box1 {
   display: flex;
@@ -788,11 +850,11 @@ export default {
   z-index: 100;
   color: white;
 }
-.el-button.is-circle {
+/* .el-button.is-circle {
   margin: 10px 0;
   margin-left: 50%;
   transform: translate(-50%);
-}
+} */
 .input_video-bt_span {
   color: rgb(230, 162, 60);
   text-align: center;
@@ -833,29 +895,60 @@ export default {
   margin: 50px 20px 0 20px;
 }
 .bas {
-  position: absolute;
-  top: 40%;
-  left: 5%;
-  transform: translate(0%, -50%);
+  margin-top: 35%;
 }
 .bas li {
   text-align: center;
-  width: 60px;
+  width: 100%;
   height: 40px;
   line-height: 40px;
-  border-radius: 5px;
+  color: white;
   list-style-type: none;
   cursor: pointer;
-  border-top: 1px solid rgb(235, 235, 235);
-  border-bottom: 1px solid rgb(235, 235, 235);
-  border-left: 1px solid rgb(235, 235, 235);
-  border-right: 1px solid rgb(235, 235, 235);
 }
 .bas .yanse {
-  background: rgb(230, 162, 60);
-  width: 62px;
+  /* background: rgb(230, 162, 60); */
+  width: 100%;
   height: 42px;
-  color: white;
+  color: rgb(230, 162, 60);
   border: none;
+}
+.el-header {
+  /* background-color: rgb(243, 243, 243); */
+  background-color: rgb(68, 62, 50);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.el-header img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  margin: 0 10px;
+  background: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.el-aside {
+  background-color: rgb(68, 62, 50);
+}
+.el-main {
+  box-sizing: border-box;
+}
+.Fullscreen {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.el-dropdown-link {
+  cursor: pointer;
+  color: white;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
+}
+.el-dropdown-menu__item {
+  display: inline-block;
 }
 </style>
